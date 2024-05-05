@@ -25,7 +25,7 @@ export default function lazyLoadListings(
   function createObs(ele) {
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
-      rootMargin: "0px",
+      rootMargin: "-100px",
       threshold: 0.1,
     });
 
