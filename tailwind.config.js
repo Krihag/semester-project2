@@ -1,8 +1,30 @@
+/* eslint-env node */
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./**/*.html", "./src/**/*.js"],
   theme: {
-    extend: {},
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
+    extend: {
+      colors: {
+        primary: " #201233",
+        secondary: "#201233",
+
+        pinker: "#bb78b6",
+        lighterPurple: "#3B2952",
+        modalBg: "#28193E",
+        cta: "#FF8B66",
+      },
+    },
   },
-  plugins: [],
+  // variants: {
+  //   extend: {
+  //     opacity: ["group-hover"],
+  //   },
+  // },
 };

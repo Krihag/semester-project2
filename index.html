@@ -1,14 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link href="/src/css/input.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Semester Project 2</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b515e79b0f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- <link rel="stylesheet" href="./dist/css/output.css" /> -->
+    <link href="/src/css/input.css" rel="stylesheet" />
+
+    <script type="module" src="src/js/pages/main/index.js"></script>
+
+    <title>Document</title>
   </head>
-  <body>
-    <div id="root">
-      <h1 class="">test</h1>
-    </div>
+  <body class="bg-lighterPurple">
+    <header
+      class="flex fixed lg:relative w-screen max-w-screen justify-between top-0 py-3 px-8 md:px-14 bg-secondary z-20 items-center lg:border-b lg:border-lighterPurple"
+    >
+      <div
+        class="sm:max-w-7xl flex justify-between w-full items-center mx-auto"
+      >
+        <a class="" href="/">
+          <img src="/src/img/cloudbids-logo.png" class="w-28 lg:w-40" alt="" />
+        </a>
+
+        <nav
+          id="nav-bar"
+          class="hidden flex-col gap-2 absolute top-11 right-0 px-4 w-72 py-5 shadow-lg bg-secondary rounded-bl-2xl lg:static lg:flex lg:flex-row lg:items-center lg:gap-4 lg:w-fit lg:shadow-none"
+        ></nav>
+        <div id="hamburger-menu" class="px-1 lg:hidden">
+          <i
+            class="fa-solid fa-bars text-2xl text-purple-100"
+            id="hamburger-open"
+          ></i>
+          <i class="fa-solid fa-xmark hidden text-lg" id="hamburger-close"></i>
+        </div>
+      </div>
+    </header>
+    <main class="min-h-screen">
+      <section
+        class="relative h-screen w-screen overflow-hidden bg-primary mb-[20rem] lg:mb-[30rem]"
+      >
+        <div
+          class="fixed top-[30%] px-8 max-w-full text-center w-full transition-all duration-300 ease-out"
+          id="parallax-text"
+        >
+          <h1
+            class="text-xl font-semibold mb-2 xs:text-2xl md:text-3xl xl:text-4xl"
+          >
+            Welcome to CloudBids
+          </h1>
+
+          <p class="text-sm xs:text-base md:text-lg xl:text-xl">
+            Discover a world of online auctions where buying and selling is a
+            breeze.
+          </p>
+        </div>
+        <img
+          src="/src/img/parallax/layer-1.png"
+          class="relative top-[70%] w-full transition-all duration-300 ease-out lg:top-[50%]"
+          alt=""
+          id="parallax-layer-1"
+        /><img
+          src="/src/img/parallax/layer-2.png"
+          class="absolute top-[75%] w-full transition-all duration-300 ease-out lg:top-[55%]"
+          alt=""
+          id="parallax-layer-2"
+        />
+        <img
+          src="/src/img/parallax/layer-3.png"
+          class="absolute top-[80%] w-full transition-all duration-300 ease-out lg:top-[60%]"
+          alt=""
+          id="parallax-layer-3"
+        />
+      </section>
+      <!-- <div class="flex justify-center gap-1 mt-6 px-6 relative">
+        <input
+          id="search-input"
+          type="search"
+          class="rounded-full text-primary px-4 py-1 outline-none bg-purple-100 w-full"
+          placeholder="Search listings.."
+        />
+      </div> -->
+
+      <!-- ALL LISTINGS SECTION -->
+      <section class="max-w-6xl mx-auto">
+        <div class="my-6">
+          <div
+            class="bg-white flex px-4 md:px-6 rounded-md max-w-80 items-center justify-between"
+          >
+            <span
+              class="py-4 text-sm sm:text-base lg:text-base font-normal text-secondary border-r pr-4 md:pr-8"
+              >Sort by:</span
+            >
+
+            <select
+              name="sort-listings"
+              id="sort-listings"
+              class="text-primary h-full outline-none text-sm sm:text-base sm:px-0"
+            >
+              <option value="ending-soon" class="py-2 text-base" selected>
+                Ending soon
+              </option>
+              <option value="order" class="py-2 text-base">Title A-Z</option>
+              <option value="reverse" class="py-2 text-base">Title Z-A</option>
+              <option value="new-listings" class="py-2 text-base">
+                New listings
+              </option>
+              <option value="highest-price" class="py-2 text-base">
+                Highest price
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="flex justify-center items-center py-6 w-full px-4 flex-wrap gap-4 lg:justify-center lg:gap-8"
+          id="listings-container"
+        ></div>
+      </section>
+      <!-- MODAL  -->
+      <div
+        id="modal-container"
+        class="hidden items-center fixed justify-center z-40 w-screen px-2 py-6 h-screen top-0 left-0 bg-white bg-opacity-5 backdrop-blur-sm max-h-screen max-w-screen"
+      >
+        <div
+          class="relative max-w-2xl flex flex-col rounded-md bg-modalBg w-full min-h-60 max-h-full overflow-auto"
+        >
+          <div
+            class="flex justify-between items-center sticky top-0 p-5 border-b border-lighterPurple bg-modalBg"
+          >
+            <h2
+              class="text-xl font-bold text-purple-100"
+              id="modal-header"
+            ></h2>
+            <i
+              class="fa-solid fa-xmark text-2xl font-bold cursor-pointer text-purple-100"
+              id="modal-close"
+            ></i>
+          </div>
+          <div
+            id="modal-content"
+            class="flex items-center justify-center gap-4 pt-4 pb-8 w-full text-white px-5"
+          ></div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
