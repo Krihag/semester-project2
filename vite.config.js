@@ -1,9 +1,11 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import topLevelAwait from "esbuild-plugin-top-level-await";
 
 export default defineConfig({
+  plugins: [topLevelAwait()],
   build: {
-    target: "es2019",
+    target: "esnext",
     emptyOutDir: true,
     rollupOptions: {
       input: {
