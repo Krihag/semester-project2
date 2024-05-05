@@ -92,32 +92,60 @@
 
       <!-- ALL LISTINGS SECTION -->
       <section class="max-w-6xl mx-auto">
-        <div class="my-6">
-          <div
-            class="bg-white flex px-4 md:px-6 rounded-md max-w-80 items-center justify-between"
-          >
-            <span
-              class="py-4 text-sm sm:text-base lg:text-base font-normal text-secondary border-r pr-4 md:pr-8"
-              >Sort by:</span
-            >
+        <div class="mx-5">
+          <div class="my-6 flex gap-4 justify-between">
+            <div id="search-bar" class="w-3/4 lg:w-1/2 flex relative gap-1">
+              <input
+                type="search"
+                id="search-input"
+                class="w-full rounded-xl outline-none text-primary px-8"
+                placeholder="Search listings.."
+              />
+              <button
+                id="search-button"
+                class="bg-cta rounded-xl border-lighterPurple px-8 h-full right-0 top-0 text-primary"
+              >
+                Search
+              </button>
+            </div>
 
-            <select
-              name="sort-listings"
-              id="sort-listings"
-              class="text-primary h-full outline-none text-sm sm:text-base sm:px-0"
+            <div
+              class="bg-white flex px-4 md:px-6 rounded-md max-w-80 items-center justify-between"
             >
-              <option value="ending-soon" class="py-2 text-base" selected>
-                Ending soon
-              </option>
-              <option value="order" class="py-2 text-base">Title A-Z</option>
-              <option value="reverse" class="py-2 text-base">Title Z-A</option>
-              <option value="new-listings" class="py-2 text-base">
-                New listings
-              </option>
-              <option value="highest-price" class="py-2 text-base">
-                Highest price
-              </option>
-            </select>
+              <span
+                class="py-4 text-sm sm:text-base lg:text-base font-normal text-secondary border-r pr-4 md:pr-8"
+                >Sort by:</span
+              >
+
+              <select
+                name="sort-listings"
+                id="sort-listings"
+                class="text-primary h-full outline-none text-sm sm:text-base sm:px-1 lg:px-3 xl:px-5"
+              >
+                <option value="ending-soon" class="py-2 text-base" selected>
+                  Ending soon
+                </option>
+                <option value="order" class="py-2 text-base">Title A-Z</option>
+                <option value="reverse" class="py-2 text-base">
+                  Title Z-A
+                </option>
+                <option value="new-listings" class="py-2 text-base">
+                  New listings
+                </option>
+                <option value="highest-price" class="py-2 text-base">
+                  Highest price
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="flex h-10 text-lg gap-4 items-center">
+            <p id="search-text" class="text-xl">All listings</p>
+            <button
+              class="hidden border-b border-cta px-2 py-1"
+              id="all-listings-btn"
+            >
+              See all listings
+            </button>
           </div>
         </div>
         <div
