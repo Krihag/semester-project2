@@ -21,6 +21,7 @@ export default function registerModal() {
     name: "email",
     type: "email",
     required: true,
+    pattern: "[\\w\\-.]+@(stud\\.)?noroff\\.no$",
   });
 
   const password = inputLabel({

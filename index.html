@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to CloudBids, your premier online auction platform. Discover a wide range of items, bid with confidence, and find your next treasure. Join the CloudBids community today!"
+    />
+    <title>CloudBids - Your Premier Online Auction Platform</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,700;1,900&display=swap"
@@ -17,8 +22,6 @@
     <link href="/src/css/input.css" rel="stylesheet" />
 
     <script type="module" src="src/js/pages/main/index.js"></script>
-
-    <title>Document</title>
   </head>
   <body class="bg-lighterPurple">
     <header
@@ -91,36 +94,41 @@
       </div> -->
 
       <!-- ALL LISTINGS SECTION -->
-      <section class="max-w-6xl mx-auto">
-        <div class="mx-5">
-          <div class="my-6 flex gap-4 justify-between">
-            <div id="search-bar" class="w-3/4 lg:w-1/2 flex relative gap-1">
+      <section class="max-w-sm md:max-w-3xl xl:max-w-6xl mx-auto">
+        <div class="mx-8 lg:mx-4 xl:mx-5">
+          <div
+            class="my-6 flex gap-4 justify-between flex-col-reverse xl:flex-row xl:items-center"
+          >
+            <div
+              id="search-bar"
+              class="w-full md:w-3/4 lg:w-1/2 flex relative gap-1 pt-4 lg:pt-0 text-sm lg:text-base"
+            >
               <input
                 type="search"
                 id="search-input"
-                class="w-full rounded-xl outline-none text-primary px-8"
+                class="w-full rounded-xl outline-none text-primary px-4 lg:px-8 py-3"
                 placeholder="Search listings.."
               />
               <button
                 id="search-button"
-                class="bg-cta rounded-xl border-lighterPurple px-8 h-full right-0 top-0 text-primary"
+                class="bg-cta rounded-xl border-lighterPurple px-4 xl:px-8 h-full right-0 top-0 py-3 text-primary"
               >
                 Search
               </button>
             </div>
 
             <div
-              class="bg-white flex px-4 md:px-6 rounded-md max-w-80 items-center justify-between"
+              class="bg-purple-100 flex px-4 rounded-md max-w-80 w-full items-center justify-between"
             >
               <span
-                class="py-4 text-sm sm:text-base lg:text-base font-normal text-secondary border-r pr-4 md:pr-8"
+                class="py-4 text-sm sm:text-base xl:text-base font-normal bg-purple-100 text-secondary border-r border-purple-200 pr-2 lg:pr-6"
                 >Sort by:</span
               >
 
               <select
                 name="sort-listings"
                 id="sort-listings"
-                class="text-primary h-full outline-none text-sm sm:text-base sm:px-1 lg:px-3 xl:px-5"
+                class="text-primary bg-purple-100 h-full outline-none text-sm sm:text-base sm:px-1 lg:px-3 xl:px-5"
               >
                 <option value="ending-soon" class="py-2 text-base" selected>
                   Ending soon
@@ -138,8 +146,10 @@
               </select>
             </div>
           </div>
-          <div class="flex h-10 text-lg gap-4 items-center">
-            <p id="search-text" class="text-xl">All listings</p>
+          <div
+            class="flex h-28 xl:h-10 text-base md:text-lg gap-4 items-center flex-wrap w-full"
+          >
+            <p id="search-text" class="text-lg md:text-xl">All listings</p>
             <button
               class="hidden border-b border-cta px-2 py-1"
               id="all-listings-btn"
@@ -179,6 +189,14 @@
           ></div>
         </div>
       </div>
+
+      <a
+        href="#"
+        class="hidden fixed bottom-6 right-4 h-14 w-14 bg-cta rounded-full items-center justify-center shadow-lg xl:bottom-10 xl:right-8 xl:h-20 xl:w-20"
+        id="back-top-btn"
+      >
+        <i class="fa-solid fa-arrow-up text-primary text-2xl"></i>
+      </a>
     </main>
   </body>
 </html>

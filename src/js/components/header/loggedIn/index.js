@@ -105,6 +105,10 @@ export default async function loggedIn(container) {
   logout.addEventListener("click", () => {
     storage.clear();
     header();
+
+    if (window.location.pathname === "/profile/") {
+      window.location.replace("/");
+    }
   });
 
   sellItem.addEventListener("click", sellListing);

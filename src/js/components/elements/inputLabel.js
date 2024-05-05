@@ -20,6 +20,7 @@ export default function inputLabel(ele) {
   ele.inputText && (input.value = ele.inputText);
   ele.placeholder && (input.placeholder = ele.placeholder);
   ele.value && (input.value = ele.value);
+  ele.pattern && (input.pattern = ele.pattern);
 
   if (ele.btn) {
     const inputContainer = createEle(

@@ -1,6 +1,7 @@
 import postRequest from "../../../auth/requests/postRequest.js";
 import storage from "../../../../utils/storage/index.js";
 import loginReq from "../../../../updates/actions/loginReq.js";
+import errorMessage from "../../../../utils/helpers/errorMessage.js";
 
 export default async function loginListen(form) {
   const loginForm = form ? form : document.getElementById("login-form");
@@ -27,7 +28,7 @@ export default async function loginListen(form) {
       storage.save("token", accessToken);
       loginReq();
     } else {
-      console.error(err);
+      errorMessage(err);
     }
   });
 }

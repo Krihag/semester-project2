@@ -7,6 +7,10 @@ init();
 let params = new URLSearchParams(window.location.search);
 let id = params.get("id");
 
+if (!id) {
+  window.location.href = "/";
+}
+
 const data = await getListing("/" + id);
 
 const listing = data.data;
