@@ -1,5 +1,6 @@
 import createEle from "../../utils/element/createEle.js";
 import previewImg from "../../utils/helpers/image/previewImg.js";
+import placeholderImg from "../../../img/placeholder.jpg";
 
 export default function imgWithPreview(ele) {
   const figure = createEle("figure", "flex flex-col py-2");
@@ -33,7 +34,7 @@ export default function imgWithPreview(ele) {
   const addedImgArray = [];
   ele.images && ele.images.forEach((img) => addedImgArray.push(img.url));
 
-  img.src = "/src/img/placeholder.jpg";
+  img.src = placeholderImg;
 
   previewImg(input, img, errorContainer);
 
@@ -56,13 +57,13 @@ export default function imgWithPreview(ele) {
         imgContainer.remove();
         addedImgArray.splice(addedImgArray.indexOf(image.url), 1);
         if (addedImgArray.length === 0) {
-          img.src = "/src/img/placeholder.jpg";
+          img.src = placeholderImg;
         }
         if (newImg.src === img.src) {
           if (addedImgArray.length > 0) {
             img.src = addedImgArray[addedImgArray.length - 1];
           } else if (addedImgArray.length === 0) {
-            img.src = "/src/img/placeholder.jpg";
+            img.src = placeholderImg;
           }
         }
       });
@@ -99,13 +100,13 @@ export default function imgWithPreview(ele) {
         imgContainer.remove();
         addedImgArray.splice(addedImgArray.indexOf(input.value), 1);
         if (addedImgArray.length === 0) {
-          img.src = "/src/img/placeholder.jpg";
+          img.src = placeholderImg;
         }
         if (newImg.src === img.src) {
           if (addedImgArray.length > 0) {
             img.src = addedImgArray[addedImgArray.length - 1];
           } else if (addedImgArray.length === 0) {
-            img.src = "/src/img/placeholder.jpg";
+            img.src = placeholderImg;
           }
         }
       });

@@ -1,3 +1,5 @@
+import placeholderImg from "../../../../img/placeholder.jpg";
+
 /**
  * Adds an event listener to the input element that previews an image based on the input value.
  * If the input value is a valid URL, the image source will be set to the URL.
@@ -18,7 +20,7 @@ export default function previewImg(input, img, errContainer = false) {
     }
 
     if (!url || url === "") {
-      img.src = "/src/img/placeholder.jpg";
+      img.src = placeholderImg;
       return;
     }
 
@@ -28,7 +30,7 @@ export default function previewImg(input, img, errContainer = false) {
     } catch (e) {
       console.error(e);
 
-      img.src = "/src/img/placeholder.jpg";
+      img.src = placeholderImg;
     }
   });
 }

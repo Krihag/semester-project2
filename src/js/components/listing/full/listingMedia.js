@@ -1,4 +1,5 @@
 import createEle from "../../../utils/element/createEle.js";
+import placeholderImg from "../../../../img/placeholder.jpg";
 
 export default function listingMedia(data) {
   const figure = createEle("figure", "relative w-full  lg:text-xl");
@@ -94,9 +95,7 @@ export default function listingMedia(data) {
         "img",
         "w-full rounded-t-xl sm:rounded-xl h-80 lg:h-[30rem]  object-cover",
       );
-      img.src = data.media[0]?.url
-        ? data.media[0].url
-        : "/src/img/placeholder.jpg";
+      img.src = data.media[0]?.url ? data.media[0].url : placeholderImg;
       img.alt = data.media[0]?.alt ? data.media[0].alt : "Listing image";
       figure.appendChild(img);
     }
