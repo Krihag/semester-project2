@@ -28,7 +28,7 @@ export default function details(data, isOwner) {
     "div",
     "flex items-center gap-4 my-4   py-2 rounded-md ",
   );
-  headerContainer.append(sellerContainer);
+  headerContainer.append();
 
   if (isOwner) {
     const editBtn = createEle(
@@ -76,6 +76,6 @@ export default function details(data, isOwner) {
   sellerInfo.append(sellerTitle, sellerName);
   sellerContainer.append(sellerImg, sellerInfo);
 
-  container.append(headerContainer, title, description);
+  container.append(headerContainer, sellerContainer, title, description);
   return container;
 }

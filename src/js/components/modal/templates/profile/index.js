@@ -25,7 +25,7 @@ export default async function profile(name) {
   const isOwner = storage.load("profile")?.name === name ? true : false;
 
   // Added this so that if the user is trying to click on their own profile, they are redirected to their profile page and not a modal
-  isOwner && window.location.replace("/profile");
+  isOwner && window.location.replace("/profile/");
 
   const profileData = await getRequest(
     `auction/profiles/${name}?_listings=true&_wins=true&_bids=true`,

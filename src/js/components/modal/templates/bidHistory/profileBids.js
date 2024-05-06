@@ -10,9 +10,9 @@ export default function bidHistory(bids) {
     "flex justify-between items-center py-2.5 px-4 rounded-md",
   );
 
-  const itemName = createEle("div", " w-28", "Item:");
-  const bidAmount = createEle("div", "w-20 ", "Bid: ");
-  const createdAt = createEle("div", "", "Date:");
+  const itemName = createEle("div", " w-28 lg:text-lg", "Item:");
+  const bidAmount = createEle("div", "w-20 lg:text-lg", "Bid: ");
+  const createdAt = createEle("div", "lg:text-lg", "Date:");
 
   header.append(itemName, bidAmount, createdAt);
   bidsContainer.append(header);
@@ -24,7 +24,7 @@ export default function bidHistory(bids) {
     );
     const itemName = createEle(
       "a",
-      " text-sm w-28",
+      " text-sm w-28 lg:text-base",
       bid.listing.title.length > 12
         ? bid.listing.title.slice(0, 12) + ".."
         : bid.listing.title,
@@ -35,9 +35,17 @@ export default function bidHistory(bids) {
     i % 2 === 0 && item.classList.add("bg-lighterPurple");
     itemName.href = `/listing/?id=${bid.listing.id}`;
 
-    const bidAmount = createEle("div", "text-sm text-center w-12 ", bid.amount);
+    const bidAmount = createEle(
+      "div",
+      "text-sm text-center w-12 lg:text-base ",
+      bid.amount,
+    );
 
-    const createdAt = createEle("div", "text-sm", getDate(bid.created));
+    const createdAt = createEle(
+      "div",
+      "text-sm lg:text-base",
+      getDate(bid.created),
+    );
 
     item.append(itemName, bidAmount, createdAt);
     bidsContainer.append(item);
@@ -48,19 +56,3 @@ export default function bidHistory(bids) {
     title: "Your bid history",
   });
 }
-
-// const itemName = createEle(
-//     "a",
-//     " text-sm ",
-//     bids[i].listing.title.length > 15
-//       ? bids[i].listing.title.slice(0, 15) + ".."
-//       : bids[i].listing.title
-//   );
-//   itemName.href = `/listing/?id=${bids[i].listing.id}`;
-
-//   const bidAmount = createEle("div", "text-sm", bids[i].amount);
-
-//   const createdAt = createEle("div", "text-sm", getDate(bids[i].created));
-
-//   container.append(itemName, bidAmount, createdAt);
-//   bidsContainer.append(container);

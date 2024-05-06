@@ -56,12 +56,14 @@
           id="parallax-text"
         >
           <h1
-            class="text-xl font-semibold mb-2 xs:text-2xl md:text-3xl xl:text-4xl"
+            class="text-xl font-semibold mb-4 xl:mb-10 xs:text-2xl md:text-3xl xl:text-4xl"
           >
             Welcome to CloudBids
           </h1>
 
-          <p class="text-sm xs:text-base md:text-lg xl:text-xl">
+          <p
+            class="text-sm xs:text-base md:text-lg xl:text-xl xl:max-w-md xl:mx-auto"
+          >
             Discover a world of online auctions where buying and selling is a
             breeze.
           </p>
@@ -101,7 +103,7 @@
           >
             <div
               id="search-bar"
-              class="w-full md:w-3/4 lg:w-1/2 flex relative gap-1 pt-4 lg:pt-0 text-sm lg:text-base"
+              class="w-full md:w-3/4 lg:w-1/2 flex relative gap-3 pt-4 lg:pt-0 text-sm lg:text-base"
             >
               <input
                 type="search"
@@ -121,7 +123,7 @@
               class="bg-purple-100 flex px-4 rounded-md max-w-80 w-full items-center justify-between"
             >
               <span
-                class="py-4 text-sm sm:text-base xl:text-base font-normal bg-purple-100 text-secondary border-r border-purple-200 pr-2 lg:pr-6"
+                class="py-4 text-sm sm:text-base xl:text-base font-normal bg-purple-100 text-secondary border-r border-gray-400 pr-2 lg:pr-6"
                 >Sort by:</span
               >
 
@@ -130,17 +132,17 @@
                 id="sort-listings"
                 class="text-primary bg-purple-100 h-full outline-none text-sm sm:text-base sm:px-1 lg:px-3 xl:px-5"
               >
-                <option value="ending-soon" class="py-2 text-base" selected>
+                <option value="ending-soon" class="py-2 text-lg" selected>
                   Ending soon
                 </option>
-                <option value="order" class="py-2 text-base">Title A-Z</option>
-                <option value="reverse" class="py-2 text-base">
-                  Title Z-A
+                <option value="order" class="p-2 text-lg w-full">
+                  Title A-Z
                 </option>
-                <option value="new-listings" class="py-2 text-base">
+                <option value="reverse" class="py-2 text-lg">Title Z-A</option>
+                <option value="new-listings" class="py-2 text-lg">
                   New listings
                 </option>
-                <option value="highest-price" class="py-2 text-base">
+                <option value="highest-price" class="py-2 text-lg">
                   Highest price
                 </option>
               </select>
@@ -149,7 +151,9 @@
           <div
             class="flex h-28 xl:h-10 text-base md:text-lg gap-4 items-center flex-wrap w-full"
           >
-            <p id="search-text" class="text-lg md:text-xl">All listings</p>
+            <p id="search-text" class="text-lg md:text-xl font-medium">
+              All listings
+            </p>
             <button
               class="hidden border-b border-cta px-2 py-1"
               id="all-listings-btn"

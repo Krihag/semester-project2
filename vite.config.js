@@ -14,17 +14,3 @@ export default defineConfig({
     },
   },
 });
-
-// export default {
-//   root: "./",
-//   base: "./public/",
-//   build: {
-//     rollupOptions: {
-//       input: {
-//         main: "./index.html",
-//         profile: "./public/profile/index.html",
-//         listing: "./public/listing/index.html",
-//       },
-//     },
-//   },
-// };

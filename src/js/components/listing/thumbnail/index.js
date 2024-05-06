@@ -1,5 +1,6 @@
 import createEle from "../../../utils/element/createEle.js";
 import staticTimeLeft from "../../../utils/helpers/listings/staticTimeLeft.js";
+import placeholderImg from "../../../../img/placeholder.jpg";
 
 /**
  * Creates a thumbnail element for a listing.
@@ -17,8 +18,7 @@ export default function thumbnail(data) {
 
   const imgContainer = createEle("div", "w-full relative flex justify-center ");
   const img = createEle("img", "w-full h-52 rounded-t-lg object-cover md:h-60");
-  img.src =
-    data.media.length > 0 ? data.media[0].url : "/src/img/placeholder.jpg";
+  img.src = data.media.length > 0 ? data.media[0].url : placeholderImg;
   img.alt = "placeholder";
   imgContainer.append(img);
 
