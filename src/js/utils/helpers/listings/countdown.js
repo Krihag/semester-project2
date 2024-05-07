@@ -1,4 +1,5 @@
 import createEle from "../../element/createEle.js";
+import profileModal from "../../../components/modal/templates/profile/index.js";
 
 /**
  * Updates the countdown timer for a specific auction listing every 1 second based on the endsAt of the data received.
@@ -86,9 +87,21 @@ function displayWinner(data) {
 
   const winnerAvatar = createEle(
     "img",
-    "w-10 h-10 lg:w-14 h-14 rounded-full object-cover",
+    "w-10 h-10 lg:w-14 h-14 rounded-full object-cover cursor-pointer",
   );
   winnerAvatar.setAttribute("src", lastBid.bidder.avatar.url);
+
+  // added the isClicking because if you double clicked it it would render the profile twice
+  let isClicking = false;
+  winnerAvatar.addEventListener("click", () => {
+    if (isClicking) return;
+    isClicking = true;
+    setTimeout(() => {
+      isClicking = false;
+    }, 1000);
+    profileModal(lastBid.bidder.name);
+  });
+
   avatarAndDetails.appendChild(winnerAvatar);
 
   const winnerDetails = createEle(
@@ -97,7 +110,21 @@ function displayWinner(data) {
   );
   avatarAndDetails.appendChild(winnerDetails);
 
-  const winnerName = createEle("p", " lg:text-lg", lastBid.bidder.name);
+  const winnerName = createEle(
+    "p",
+    " lg:text-lg cursor-pointer",
+    lastBid.bidder.name,
+  );
+
+  winnerName.addEventListener("click", () => {
+    if (isClicking) return;
+    isClicking = true;
+    setTimeout(() => {
+      isClicking = false;
+    }, 1000);
+    profileModal(lastBid.bidder.name);
+  });
+
   winnerDetails.appendChild(winnerName);
 
   const creditsAmount = createEle(
