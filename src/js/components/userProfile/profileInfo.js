@@ -12,6 +12,8 @@ export default function profileInfo(data) {
   );
   avatar.src = data.avatar.url;
   avatar.alt = data.avatar.alt ? data.avatar.alt : "User avatar";
+
+  avatar.setAttribute("id", "user-avatar");
   const infoContainer = createEle(
     "div",
     "flex flex-col gap-2 items-start lg:items-center ",

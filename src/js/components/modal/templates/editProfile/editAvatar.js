@@ -4,6 +4,7 @@ import form from "../../../elements/form.js";
 import modal from "../../index.js";
 import cancelBtn from "../../../elements/cancelBtn.js";
 import previewImg from "../../../../utils/helpers/image/previewImg.js";
+import updateAvatar from "../../../../api/events/eventListeners/auth/updateAvatar.js";
 
 export default function editAvatar(data) {
   const avatar = document.createElement("img");
@@ -27,10 +28,17 @@ export default function editAvatar(data) {
     text: "Upload",
   });
 
+  console.log(data);
+
   const newForm = form({
     name: "editAvatar",
+    listen: updateAvatar,
+    endpoint: `auction/profiles/${data.name}`,
   });
-  newForm.setAttribute("class", "flex flex-col gap-4 w-full  justify-center");
+  newForm.setAttribute(
+    "class",
+    "flex flex-col gap-4 w-full  justify-center mx-auto max-w-md",
+  );
 
   previewImg(fileInput, avatar);
   newForm.append(avatar, fileInput, cancel, submit);

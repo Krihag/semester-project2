@@ -20,6 +20,7 @@ export default async function loggedIn(container) {
   );
   userProfileContainer.href = "/profile/";
   const userProfile = createEle("img", "w-12 h-12 rounded-full object-cover");
+  userProfile.setAttribute("id", "header-avatar");
 
   const nameAndCredits = createEle("div", "flex flex-col ");
   const userName = createEle("span", "text-lg", user.name);
