@@ -6,6 +6,7 @@ import regLink from "./regLink.js";
 import checkboxAndPw from "./checkboxAndPw.js";
 import loginListen from "../../../../api/events/eventListeners/auth/login.js";
 import cancelBtn from "../../../elements/cancelBtn.js";
+import createEle from "../../../../utils/element/createEle.js";
 
 /**
  * displaying login form in a modal
@@ -25,6 +26,12 @@ export default function login() {
     required: true,
   });
 
+  const errorContainer = createEle(
+    "div",
+    "text-red  w-full  text-red-500 pb-1 h-4",
+  );
+  errorContainer.setAttribute("id", "modal-error-display");
+
   const checkAndPassword = checkboxAndPw();
 
   const cancel = cancelBtn();
@@ -38,7 +45,16 @@ export default function login() {
     name: "login",
     listen: loginListen,
   });
-  newForm.append(email, password, checkAndPassword, submit, cancel, linkToReg);
+  newForm.append(
+    email,
+    password,
+    errorContainer,
+    checkAndPassword,
+
+    submit,
+    cancel,
+    linkToReg,
+  );
 
   modal({
     ele: newForm,

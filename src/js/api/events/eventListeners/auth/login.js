@@ -28,7 +28,11 @@ export default async function loginListen(form) {
       storage.save("token", accessToken);
       loginReq();
     } else {
-      errorMessage(err);
+      const errorContainer = document.getElementById("modal-error-display");
+      if (errorContainer) {
+        errorContainer.textContent = `* ${err}`;
+        setTimeout(() => (errorContainer.textContent = ""), 5000);
+      } else errorMessage(err);
     }
   });
 }
