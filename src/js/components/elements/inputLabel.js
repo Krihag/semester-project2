@@ -16,7 +16,7 @@ export default function inputLabel(ele) {
   input.type = ele.type;
   container.append(label);
 
-  input.required && input.setAttribute("required", true);
+  ele.required && input.setAttribute("required", true);
   ele.inputText && (input.value = ele.inputText);
   ele.placeholder && (input.placeholder = ele.placeholder);
   ele.value && (input.value = ele.value);
