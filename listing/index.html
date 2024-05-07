@@ -24,9 +24,9 @@
 
     <script type="module" src="../src/js/pages/listing/index.js"></script>
   </head>
-  <body class="bg-lighterPurple">
+  <body class="bg-lighterPurple min-h-screen">
     <header
-      class="flex fixed w-screen max-w-screen justify-between lg:h-28 top-0 py-3 px-8 md:px-14 bg-secondary z-20 items-center"
+      class="flex fixed lg:relative w-screen max-w-screen justify-between lg:h-28 top-0 py-3 px-8 md:px-14 bg-secondary z-20 items-center"
     >
       <div
         class="sm:max-w-7xl flex justify-between w-full items-center mx-auto"
@@ -48,9 +48,10 @@
         </div>
       </div>
     </header>
-    <main class="min-h-screen" id="root">
+    <main class="" id="root">
       <section
-        class="font-xl bg-secondary sticky opacity-90 z-10 top-12 py-3 lg:top-28"
+        id="time-left-container"
+        class="font-xl bg-secondary sticky opacity-90 z-10 top-12 py-3 lg:py-6 lg:top-28"
       >
         <div class="text-center text-xl my-2">Auction ends in</div>
         <div class="text-white flex justify-center items-center gap-5">

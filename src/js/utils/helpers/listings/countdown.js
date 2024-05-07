@@ -1,3 +1,5 @@
+import createEle from "../../element/createEle.js";
+
 /**
  * Updates the countdown timer for a specific auction listing every 1 second based on the endsAt of the data received.
  * it will update the days, hours, minutes and seconds left until the date provided.
@@ -11,10 +13,9 @@ export default function timeCountdown(data) {
   const hoursLeft = document.getElementById("hours-left");
   const minutesLeft = document.getElementById("minutes-left");
   const secondsLeft = document.getElementById("seconds-left");
+  const timeLeftContainer = document.getElementById("time-left-container");
 
   const countDownDate = new Date(data.endsAt);
-
-  console.log(data);
 
   const formatTime = (time) => {
     if (time < 10) {
@@ -29,26 +30,12 @@ export default function timeCountdown(data) {
 
     if (distance < 0) {
       clearInterval(updateTime);
-      daysLeft.parentElement.parentElement.parentElement.innerHTML =
+      timeLeftContainer.innerHTML = "";
+      timeLeftContainer.append(
         data.bids.length > 0
-          ? `<div class="text-center text-lg">
-      <p class="text-xl  font-semibold">Auction has ended</p>
-
-      <div class="flex justify-center items-center">
-      <div class="flex flex-col mt-1 text-start">
-      <p>Winner:</p> 
-      <div class="flex items-center gap-3">
-      <img class="w-10 h-10 rounded-full object-cover" src="${
-        data.bids[data.bids.length - 1].bidder.avatar.url
-      }" />
-      <div class="text-sm flex flex-col text-start">
-      <p>${data.bids[data.bids.length - 1].bidder.name}</p>
-      <p>for ${data.bids[data.bids.length - 1].amount} credits</p>
-      </div>
-      </div>
-      </div>
-      </div>`
-          : "<p>Auction has ended</p>";
+          ? displayWinner(data)
+          : createEle("p", null, "Auction has ended"),
+      );
       return;
     }
 
@@ -66,4 +53,59 @@ export default function timeCountdown(data) {
     minutesLeft.textContent = minutes;
     secondsLeft.textContent = seconds;
   }, 1000);
+}
+
+// This function will display the winner of the auction once the auction has ended.
+// Added this here temporarly might move it into a separate file later
+function displayWinner(data) {
+  const lastBid = data.bids[data.bids.length - 1];
+
+  const container = createEle("div", "text-center text-lg ");
+
+  const headerText = createEle(
+    "p",
+    "text-xl font-semibold",
+    "Auction has ended",
+  );
+  container.appendChild(headerText);
+
+  const contentContainer = createEle(
+    "div",
+    "flex justify-center items-center ",
+  );
+  container.appendChild(contentContainer);
+
+  const winnerContainer = createEle("div", "flex flex-col mt-1 text-start");
+  contentContainer.appendChild(winnerContainer);
+
+  const winnerText = createEle("p", " lg:text-xl py-1", "Winner:");
+  winnerContainer.appendChild(winnerText);
+
+  const avatarAndDetails = createEle("div", "flex items-center gap-3");
+  winnerContainer.appendChild(avatarAndDetails);
+
+  const winnerAvatar = createEle(
+    "img",
+    "w-10 h-10 lg:w-14 h-14 rounded-full object-cover",
+  );
+  winnerAvatar.setAttribute("src", lastBid.bidder.avatar.url);
+  avatarAndDetails.appendChild(winnerAvatar);
+
+  const winnerDetails = createEle(
+    "div",
+    "text-sm flex flex-col text-start lg:text-base",
+  );
+  avatarAndDetails.appendChild(winnerDetails);
+
+  const winnerName = createEle("p", " lg:text-lg", lastBid.bidder.name);
+  winnerDetails.appendChild(winnerName);
+
+  const creditsAmount = createEle(
+    "p",
+    " lg:text-lg",
+    `for ${lastBid.amount} credits`,
+  );
+  winnerDetails.appendChild(creditsAmount);
+
+  return container;
 }
