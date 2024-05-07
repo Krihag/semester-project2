@@ -14,21 +14,14 @@ export default function displayBy(data, btn, container) {
     return createEle("p", "text-center text-lg mt-4", "No listings found");
   if (btn.textContent.includes("Ongoing")) {
     data.listings.forEach((listing) => {
-      listing.seller = { name: data.name };
       ifActive(listing.endsAt) && container.appendChild(thumbnail(listing));
     });
   } else if (btn.textContent.includes("Won")) {
     data.wins.forEach((listing) => {
-      // Cant find the seller property or the bids (for price) in the data object (since its from profile)
-      // Temporary solution, will try to find a better way (without having to fetch a specific listing data for each of them)
-      listing.seller = { name: "user" };
       !ifActive(listing.endsAt) && container.appendChild(thumbnail(listing));
     });
   } else if (btn.textContent.includes("Ended")) {
     data.listings.forEach((listing) => {
-      listing.seller = { name: data.name };
-
-      console.log(listing);
       !ifActive(listing.endsAt) && container.appendChild(thumbnail(listing));
     });
   }

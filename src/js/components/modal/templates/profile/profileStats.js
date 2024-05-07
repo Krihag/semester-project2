@@ -6,6 +6,7 @@ export default function profileStats(data) {
   let active = 0;
   let inactive = 0;
 
+  console.log(data);
   data.listings.length > 0 &&
     data.listings.forEach((listing) =>
       ifActive(listing.endsAt) ? active++ : inactive++,

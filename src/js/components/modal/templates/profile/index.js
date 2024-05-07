@@ -5,6 +5,7 @@ import getRequest from "../../../../api/auth/requests/getRequest.js";
 import storage from "../../../../utils/storage/index.js";
 import modal from "../../index.js";
 import loginModal from "../login/index.js";
+import modalToggle from "../../handler/toggleModal.js";
 
 /**
  * Fetches and creates profile content for modal.
@@ -15,6 +16,9 @@ import loginModal from "../login/index.js";
  */
 export default async function profile(name) {
   const userProfile = storage.load("profile");
+
+  // Closes the modal to reset it to prevent issue when opening a new user profile from the profileModal.
+  modalToggle.close();
 
   // If the user is not logged in, opens the login modal instead.
   if (!userProfile) {
@@ -30,11 +34,21 @@ export default async function profile(name) {
   const profileData = await getRequest(
     `auction/profiles/${name}?_listings=true&_wins=true&_bids=true`,
   );
-
   const data = profileData.data;
+
+  const userListings = await getRequest(
+    `auction/profiles/${data.name}/listings?_bids=true&_seller=true`,
+  );
+  const wonListings = await getRequest(
+    `auction/profiles/${data.name}/wins?_bids=true&_seller=true`,
+  );
+
   console.log(data);
   const media = profileMedia(data, isOwner);
-  const stats = profileStats(data);
+  const stats = profileStats({
+    listings: userListings.data,
+    wins: wonListings.data,
+  });
 
   container.append(media, stats);
 

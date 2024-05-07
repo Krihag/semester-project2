@@ -48,6 +48,7 @@ export default function editListing(data) {
     endpoint: `auction/listings/${data.id}`,
     onClick: deleteRequest,
     delete: true,
+    confirm: true,
   });
 
   const submit = button({
