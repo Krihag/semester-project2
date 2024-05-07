@@ -30,6 +30,5 @@ export default async function addBid(id, amount, errContainer = false) {
       }, 7000);
       return;
     }
-    console.log(err);
   }
 }
