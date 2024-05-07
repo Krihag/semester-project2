@@ -1,6 +1,7 @@
 import createEle from "../../../utils/element/createEle.js";
 import profile from "../../modal/templates/profile/index.js";
 import editListing from "../../modal/templates/listing/editListing.js";
+import getDate from "../../../utils/helpers/getDate.js";
 
 export default function details(data, isOwner) {
   const container = createEle(
@@ -28,8 +29,16 @@ export default function details(data, isOwner) {
     "div",
     "flex items-center gap-4 my-4   py-2 rounded-md ",
   );
-  headerContainer.append();
 
+  const updatedAt = createEle(
+    "p",
+    "text-sm w-24 text-purple-100 lg:text-base lg:w-32",
+    new Date(data.updated) > new Date(data.created)
+      ? `Updated: ${getDate(data.updated)}`
+      : `Created: ${getDate(data.created)}`,
+  );
+
+  headerContainer.append(updatedAt);
   if (isOwner) {
     const editBtn = createEle(
       "button",
