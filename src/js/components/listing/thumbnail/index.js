@@ -1,6 +1,7 @@
 import createEle from "../../../utils/element/createEle.js";
 import staticTimeLeft from "../../../utils/helpers/listings/staticTimeLeft.js";
 import placeholderImg from "../../../../img/placeholder.jpg";
+import profileModal from "../../modal/templates/profile/index.js";
 
 /**
  * Creates a thumbnail element for a listing.
@@ -9,18 +10,20 @@ import placeholderImg from "../../../../img/placeholder.jpg";
  */
 export default function thumbnail(data) {
   const thumbnail = createEle(
-    "a",
+    "div",
     "bg-primary w-full flex flex-col justify-center rounded-lg max-w-80  pb-4 shadow-lg md:max-w-[22rem]",
   );
-  thumbnail.href = `/listing/?id=${data.id}`;
+  // thumbnail.href = `/listing/?id=${data.id}`;
 
   thumbnail.dataset.endsAt = data.endsAt;
 
-  const imgContainer = createEle("div", "w-full relative flex justify-center ");
+  const imgContainer = createEle("a", "w-full relative flex justify-center ");
   const img = createEle("img", "w-full h-52 rounded-t-lg object-cover md:h-60");
   img.src = data.media.length > 0 ? data.media[0].url : placeholderImg;
   img.alt = "placeholder";
   imgContainer.append(img);
+
+  imgContainer.href = `/listing/?id=${data.id}`;
 
   const timeLeft = createEle(
     "div",
@@ -60,9 +63,13 @@ export default function thumbnail(data) {
   );
   const sellerName = createEle(
     "span",
-    "text-purple-100 lg:text-base",
+    "text-purple-100 lg:text-base cursor-pointer ",
     data.seller.name,
   );
+
+  sellerName.addEventListener("click", () => {
+    profileModal(data.seller.name);
+  });
 
   seller.append(sellerSpan, sellerName);
 
@@ -90,6 +97,11 @@ export default function thumbnail(data) {
     "button",
     " py-2 px-4 mt-4 bg-purple-200 text-primary rounded-full shadow-md w-full hover:bg-cta duration-500 lg:text-base  ",
     "View listing",
+  );
+
+  readMoreBtn.addEventListener(
+    "click",
+    () => (window.location.href = `/listing/?id=${data.id}`),
   );
 
   // if (data.tags.length > 0) {
