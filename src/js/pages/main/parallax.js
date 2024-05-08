@@ -13,11 +13,8 @@ export default function parallax() {
   const speed2 = -0.4;
   const speed3 = -0.6;
 
-  textLayer.classList.add("hidden");
   if (window.scrollY < window.innerHeight / 3) {
     textLayer.classList.remove("hidden");
-    textLayer.classList.remove("absolute");
-    textLayer.classList.add("fixed");
   }
 
   window.addEventListener("scroll", () => {
@@ -31,13 +28,9 @@ export default function parallax() {
 
       if (offset > window.innerHeight / 3) {
         textLayer.classList.add("hidden");
-        textLayer.classList.remove("fixed");
-        textLayer.classList.add("absolute");
       }
       if (offset < window.innerHeight / 3) {
         textLayer.classList.remove("hidden");
-        textLayer.classList.add("fixed");
-        textLayer.classList.remove("absolute");
       }
     });
   });
