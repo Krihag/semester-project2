@@ -3,6 +3,7 @@ import sellListing from "../../modal/templates/listing/sellListing.js";
 import storage from "../../../utils/storage/index.js";
 import getRequests from "../../../api/auth/requests/getRequest.js";
 import header from "../index.js";
+import successMessage from "../../../utils/helpers/successMessage.js";
 
 export default async function loggedIn(container) {
   const user = storage.load("profile");
@@ -108,8 +109,11 @@ export default async function loggedIn(container) {
     header();
 
     if (window.location.pathname === "/profile/") {
+      storage.save("successMessage", "Logged out");
       window.location.replace("/");
     }
+
+    successMessage("logged out");
   });
 
   sellItem.addEventListener("click", sellListing);
