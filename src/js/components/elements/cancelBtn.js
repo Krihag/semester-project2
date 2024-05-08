@@ -13,7 +13,7 @@ export default function cancelBtn(ele) {
   btn.type = "button";
 
   btn.addEventListener("click", async () => {
-    if (ele.confirm) {
+    if (ele?.confirm) {
       confirmAction(ele.onClick, ele.endpoint, true);
       return;
     }
