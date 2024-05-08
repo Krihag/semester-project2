@@ -32,7 +32,7 @@ export default function sortBy(listings, ele, container) {
 function sortListings(listings, choice) {
   switch (choice) {
     case "ending-soon":
-      return listings.sort((a, b) => new Date(b.endsAt) - new Date(a.endsAt));
+      return listings.sort((a, b) => new Date(a.endsAt) - new Date(b.endsAt));
     case "order":
       return listings.sort((a, b) => a.title.localeCompare(b.title));
     case "reverse":
