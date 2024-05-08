@@ -42,7 +42,7 @@ export default function details(data, isOwner) {
   if (isOwner) {
     const editBtn = createEle(
       "button",
-      "px-4 py-2 bg-purple-200 text-primary rounded-full text-sm lg:text-base",
+      "px-4 py-2 bg-purple-200 text-primary rounded-full text-sm lg:text-base hover:bg-cta duration-500",
       "Edit listing",
     );
     editBtn.addEventListener("click", () => {
@@ -71,7 +71,11 @@ export default function details(data, isOwner) {
 
   const sellerTitle = createEle("p", "text-sm  ", "Seller: ");
 
-  const sellerName = createEle("a", null, data.seller.name);
+  const sellerName = createEle(
+    "a",
+    "cursor-pointer hover:text-cta duration-300",
+    data.seller.name,
+  );
 
   sellerName.addEventListener("click", () => {
     if (isClicking) return;
@@ -82,9 +86,32 @@ export default function details(data, isOwner) {
     profile(data.seller.name);
   });
 
+  const tagsContainer = createEle(
+    "div",
+    "flex flex-wrap  mt-2 items-center gap-2",
+  );
+
+  console.log(data);
+  if (data.tags.length > 0) {
+    data.tags.forEach((tag) => {
+      const tagEle = createEle(
+        "span",
+        "border px-4 py-1 bg-primary text-xs lg:text-sm rounded-full",
+        tag.startsWith("#") ? tag : `#${tag}`,
+      );
+      tagsContainer.append(tagEle);
+    });
+  }
+
   sellerInfo.append(sellerTitle, sellerName);
   sellerContainer.append(sellerImg, sellerInfo);
 
-  container.append(headerContainer, sellerContainer, title, description);
+  container.append(
+    headerContainer,
+    sellerContainer,
+    title,
+    tagsContainer,
+    description,
+  );
   return container;
 }

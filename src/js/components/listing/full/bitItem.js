@@ -17,7 +17,7 @@ export default function bidItem(bid, i) {
 
   const bidderName = createEle(
     "a",
-    "text-sm cursor-pointer md:text-base",
+    "text-sm cursor-pointer md:text-base hover:text-cta duration-300",
     bid.bidder.name,
   );
 
