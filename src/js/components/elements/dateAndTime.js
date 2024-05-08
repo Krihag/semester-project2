@@ -21,6 +21,8 @@ export default function dateAndTime(ele) {
   date.name = "date";
   date.required = true;
 
+  date.min = now.toISOString().substring(0, 16);
+
   container.append(inputLabel, date);
 
   return container;
