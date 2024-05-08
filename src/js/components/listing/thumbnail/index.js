@@ -63,7 +63,7 @@ export default function thumbnail(data) {
   );
   const sellerName = createEle(
     "span",
-    "text-purple-100 lg:text-base cursor-pointer ",
+    "text-purple-100 lg:text-base cursor-pointer hover:text-cta duration-300 ",
     data.seller.name,
   );
 
