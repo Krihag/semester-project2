@@ -9,7 +9,7 @@ import searchbar from "../../utils/helpers/searchbar/index.js";
 const container = document.getElementById("listings-container");
 const sortByEle = document.getElementById("sort-listings");
 const backToTop = document.getElementById("back-top-btn");
-
+parallax();
 init();
 const filteredListings = await fetchAllListings(true);
 
@@ -19,8 +19,6 @@ const sortedListings = filteredListings.sort(
 
 lazyLoadListings(sortedListings, container);
 sortBy(filteredListings, sortByEle, container);
-
-parallax();
 
 searchbar(sortedListings);
 

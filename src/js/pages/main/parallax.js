@@ -13,6 +13,10 @@ export default function parallax() {
   const speed2 = -0.4;
   const speed3 = -0.6;
 
+  if (window.scrollY < window.innerHeight / 3) {
+    textLayer.classList.remove("hidden");
+  }
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > window.innerHeight) return;
     const offset = window.scrollY;
