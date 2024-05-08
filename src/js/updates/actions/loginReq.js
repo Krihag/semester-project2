@@ -5,5 +5,5 @@ import successMessage from "../../utils/helpers/successMessage.js";
 export default function loginReq() {
   header();
   modalToggle.close();
-  successMessage("Welcome back!");
+  successMessage("Logged in");
 }
