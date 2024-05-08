@@ -17,9 +17,6 @@ export default class AuthRequest {
     this.headers = headers;
     this.endpoint = endpoint;
     this.body = body;
-
-    console.log(this.endpoint);
-    console.log(this.body);
   }
 
   /**
@@ -31,7 +28,7 @@ export default class AuthRequest {
     if (!endpoint) throw new Error("Missing endpoint");
 
     const url = `${config.BASE_URL}/${endpoint}`;
-    console.log(url);
+
     try {
       const response = await fetch(url, {
         method: this.method,
