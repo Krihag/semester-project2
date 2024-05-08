@@ -114,53 +114,59 @@
       </div> -->
 
       <!-- ALL LISTINGS SECTION -->
-      <section class="max-w-sm md:max-w-3xl xl:max-w-6xl mx-auto">
+      <section class="max-w-sm md:max-w-3xl xl:max-w-6xl mx-auto z-10">
         <div class="mx-8 lg:mx-4 xl:mx-5">
           <div
-            class="my-6 flex gap-4 justify-between flex-col-reverse xl:flex-row xl:items-center"
+            class="my-6 flex gap-4 justify-between flex-col-reverse md:flex-row md:items-center"
           >
             <div
               id="search-bar"
-              class="w-full md:w-3/4 lg:w-1/2 flex relative gap-3 pt-4 lg:pt-0 text-sm lg:text-base"
+              class="w-full md:w-3/4 xl:w-1/2 flex relative gap-2 pt-4 md:pt-0 text-sm md:text-base"
             >
               <input
                 type="search"
                 id="search-input"
-                class="w-full rounded-xl outline-none text-primary px-4 lg:px-8 py-3"
+                class="w-full rounded-md outline-none text-primary px-4 xl:px-8 py-2 xl:py-3 text-sm xl:text-base"
                 placeholder="Search listings.."
               />
               <button
                 id="search-button"
-                class="bg-cta rounded-xl border-lighterPurple px-4 xl:px-8 h-full right-0 top-0 py-3 text-primary"
+                class="bg-cta rounded-md border-lighterPurple px-4 xl:px-8 h-full right-0 top-0 py-3 text-sm xl:text-base text-primary"
               >
                 Search
               </button>
             </div>
 
             <div
-              class="bg-purple-100 flex px-4 rounded-md max-w-80 w-full items-center justify-between"
+              class="bg-purple-100 flex px-3 xl:px-4 rounded-md max-w-60 xl:max-w-80 w-full items-center"
             >
               <span
-                class="py-4 text-sm sm:text-base xl:text-base font-normal bg-purple-100 text-secondary border-r border-gray-400 pr-2 lg:pr-6"
+                class="py-3 text-sm sm:text-sm xl:text-base font-normal bg-purple-100 text-secondary border-r border-gray-400 pr-3 xl:pr-6"
                 >Sort by:</span
               >
 
               <select
                 name="sort-listings"
                 id="sort-listings"
-                class="text-primary bg-purple-100 h-full outline-none text-sm sm:text-base sm:px-1 lg:px-3 xl:px-5"
+                class="text-primary bg-purple-100 h-full outline-none text-sm xl:text-base sm:px-1 lg:px-3 xl:px-5 mx-auto"
               >
-                <option value="ending-soon" class="py-2 text-lg" selected>
+                <option
+                  value="ending-soon"
+                  class="py-2 text-sm xl:text-base w-full"
+                  selected
+                >
                   Ending soon
                 </option>
-                <option value="order" class="p-2 text-lg w-full">
+                <option value="order" class="p-2 text-sm xl:text-base w-full">
                   Title A-Z
                 </option>
-                <option value="reverse" class="py-2 text-lg">Title Z-A</option>
-                <option value="new-listings" class="py-2 text-lg">
+                <option value="reverse" class="py-2 text-sm xl:text-base">
+                  Title Z-A
+                </option>
+                <option value="new-listings" class="py-2 text-sm xl:text-base">
                   New listings
                 </option>
-                <option value="highest-price" class="py-2 text-lg">
+                <option value="highest-price" class="py-2 text-sm xl:text-base">
                   Highest price
                 </option>
               </select>
