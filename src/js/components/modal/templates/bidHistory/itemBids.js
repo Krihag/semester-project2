@@ -29,7 +29,7 @@ export default function itemBids(bids) {
     i % 2 === 0 && item.classList.add("bg-lighterPurple");
     const userName = createEle(
       "a",
-      "cursor-pointer",
+      "cursor-pointer hover:text-cta duration-300 w-28",
       bid.bidder.name.length > 12
         ? bid.bidder.name.slice(0, 12) + ".."
         : bid.bidder.name,

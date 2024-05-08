@@ -24,7 +24,7 @@ export default function bidHistory(bids) {
     );
     const itemName = createEle(
       "a",
-      " text-sm w-28 lg:text-base",
+      " text-sm w-28 lg:text-base cursor-pointer hover:text-cta duration-300",
       bid.listing.title.length > 12
         ? bid.listing.title.slice(0, 12) + ".."
         : bid.listing.title,
