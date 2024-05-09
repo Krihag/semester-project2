@@ -11,24 +11,16 @@ export default function searchbar(listings) {
   searchButton.addEventListener("click", (e) => {
     e.preventDefault();
     const searchValue = searchInput.value;
-
     if (searchValue === "") return;
-    let result = [];
+    search(searchValue, listings);
+  });
 
-    searchText.innerHTML = "";
-    listings.forEach(
-      (listing) =>
-        listing.title.toLowerCase().includes(searchValue.toLowerCase()) &&
-        result.push(listing),
-    );
-
-    seeAllBtn.classList.remove("hidden");
-    seeAllBtn.classList.add("flex");
-    console.log(seeAllBtn);
-
-    searchText.textContent = `Search results for "${searchValue}" gave ${result.length} results.`;
-    lazyLoadListings(result, container);
-    searchInput.value = "";
+  searchInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      const searchValue = searchInput.value;
+      if (searchValue === "") return;
+      search(searchValue, listings);
+    }
   });
 
   seeAllBtn.addEventListener("click", () => {
@@ -37,4 +29,21 @@ export default function searchbar(listings) {
     seeAllBtn.classList.add("hidden");
     seeAllBtn.classList.remove("flex");
   });
+}
+
+function search(searchValue, listings, result = []) {
+  searchText.innerHTML = "";
+  listings.forEach(
+    (listing) =>
+      listing.title.toLowerCase().includes(searchValue.toLowerCase()) &&
+      result.push(listing),
+  );
+
+  seeAllBtn.classList.remove("hidden");
+  seeAllBtn.classList.add("flex");
+  console.log(seeAllBtn);
+
+  searchText.textContent = `Search results for "${searchValue}" gave ${result.length} results.`;
+  lazyLoadListings(result, container);
+  searchInput.value = "";
 }
