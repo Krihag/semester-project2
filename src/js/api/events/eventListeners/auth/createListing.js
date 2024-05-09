@@ -1,7 +1,7 @@
 import storage from "../../../../utils/storage/index.js";
 import login from "../../../../components/modal/templates/login/index.js";
 import postRequest from "../../../auth/requests/postRequest.js";
-import displayNewListing from "../../../../updates/actions/displayNewListing.js";
+
 import inputError from "../../../../components/modal/handler/inputError.js";
 
 export default async function createListing(form) {
@@ -29,7 +29,6 @@ export default async function createListing(form) {
 
     const data = Object.fromEntries(formData.entries());
     tagsContainer.length > 0 && (data.tags = tagsContainer);
-    console.log(data);
 
     const imgs = form.querySelectorAll(".create-img");
     const images = [];
@@ -51,7 +50,8 @@ export default async function createListing(form) {
     const [res, err] = await request.fetch();
 
     if (res) {
-      displayNewListing(res.data);
+      window.location.href = `/listing/?id=${res.data.id}`;
+      storage.save("successMessage", "Listing created");
     } else {
       console.log(err);
     }
