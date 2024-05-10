@@ -6,10 +6,12 @@ const searchButton = document.getElementById("search-button");
 const container = document.getElementById("listings-container");
 const searchText = document.getElementById("search-text");
 const seeAllBtn = document.getElementById("all-listings-btn");
+const searchContainer = document.getElementById("search-container");
 
 export default function searchbar(listings) {
   searchButton.addEventListener("click", (e) => {
     e.preventDefault();
+
     const searchValue = searchInput.value;
     if (searchValue === "") return;
     search(searchValue, listings);
@@ -28,6 +30,7 @@ export default function searchbar(listings) {
     searchText.textContent = "All listings";
     seeAllBtn.classList.add("hidden");
     seeAllBtn.classList.remove("flex");
+    searchContainer.classList.remove("h-28");
   });
 }
 
@@ -41,8 +44,8 @@ function search(searchValue, listings, result = []) {
 
   seeAllBtn.classList.remove("hidden");
   seeAllBtn.classList.add("flex");
-  console.log(seeAllBtn);
 
+  searchContainer.classList.add("h-28");
   searchText.textContent = `Search results for "${searchValue}" gave ${result.length} results.`;
   lazyLoadListings(result, container);
   searchInput.value = "";
