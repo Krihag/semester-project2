@@ -7,7 +7,7 @@ import getRequest from "../../api/auth/requests/getRequest.js";
 export default async function userProfile(data) {
   const container = createEle(
     "section",
-    "pb-6 flex flex-col  gap-4 lg:flex-row lg:justify-between w-full max-w-7xl lg:mx-auto lg:items-start mt-10 lg:mt-28",
+    "pb-6 flex flex-col  gap-4 lg:flex-row lg:justify-between w-full max-w-7xl lg:mx-auto lg:items-start mt-10 lg:my-16",
   );
 
   const userListings = await getRequest(
