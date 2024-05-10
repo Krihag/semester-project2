@@ -14,7 +14,7 @@ export default function details(data, isOwner) {
   if (titleText.length > 20 && !titleText.includes(" ")) {
     titleText = titleText.slice(0, 20);
   }
-  console.log(titleText);
+
   const title = createEle("h1", "text-lg lg:text-xl font-semibold ", titleText);
 
   const description = createEle(
@@ -91,7 +91,6 @@ export default function details(data, isOwner) {
     "flex flex-wrap  mt-2 items-center gap-2",
   );
 
-  console.log(data);
   if (data.tags.length > 0) {
     data.tags.forEach((tag) => {
       const tagEle = createEle(

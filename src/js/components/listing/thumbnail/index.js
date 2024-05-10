@@ -104,22 +104,6 @@ export default function thumbnail(data) {
     () => (window.location.href = `/listing/?id=${data.id}`),
   );
 
-  // if (data.tags.length > 0) {
-  //   console.log("test");
-  //   const tagsContainer = createEle("div", "flex gap-2 items-center ");
-  //   data.tags.forEach((tag) => {
-  //     console.log(tag);
-  //     const tagEle = createEle(
-  //       "span",
-  //       "text-xs opacity-80 text-white   rounded-md",
-  //       "#" + tag
-  //     );
-  //     tagsContainer.append(tagEle);
-  //   });
-  //   console.log(tagsContainer);
-  //   contentContainer.append(tagsContainer);
-  // }
-
   contentContainer.append(seller, readMoreBtn);
   thumbnail.append(imgContainer, contentContainer);
 
