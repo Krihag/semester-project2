@@ -4,11 +4,11 @@ import editAvatar from "../modal/templates/editProfile/editAvatar.js";
 export default function profileInfo(data) {
   const container = createEle(
     "div",
-    "flex gap-4 px-4  items-center  flex-wrap max-w-sm mx-auto md:max-w-lg md:gap-8 lg:mx-0 lg:flex-nowrap lg:flex-col lg:bg-primary lg:py-10  lg:rounded-xl lg:min-w-96",
+    "flex gap-4 px-3 justify-center  items-center max-w-sm mx-auto md:max-w-lg md:gap-8 lg:mx-0 lg:flex-nowrap flex-col lg:bg-primary lg:py-10  lg:rounded-xl lg:min-w-96",
   );
   const avatar = createEle(
     "img",
-    "w-28 h-28 rounded-full object-cover md:w-36 md:h-36 lg:w-60 lg:h-60",
+    "w-32 h-32 rounded-full object-cover md:w-36 md:h-36 lg:w-60 lg:h-60",
   );
   avatar.src = data.avatar.url;
   avatar.alt = data.avatar.alt ? data.avatar.alt : "User avatar";
@@ -16,7 +16,7 @@ export default function profileInfo(data) {
   avatar.setAttribute("id", "user-avatar");
   const infoContainer = createEle(
     "div",
-    "flex flex-col gap-2 items-start lg:items-center ",
+    "flex flex-col gap-2 items-start items-center ",
   );
   const name = createEle(
     "h1",
