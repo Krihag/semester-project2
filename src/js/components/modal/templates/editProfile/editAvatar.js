@@ -28,8 +28,6 @@ export default function editAvatar(data) {
     text: "Upload",
   });
 
-  console.log(data);
-
   const newForm = form({
     name: "editAvatar",
     listen: updateAvatar,

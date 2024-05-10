@@ -30,8 +30,6 @@ export default async function loginListen(form) {
     const [data, err] = await request.fetch();
 
     if (data) {
-      console.log(data);
-      console.log(data.data);
       const { accessToken, ...profile } = data.data;
       profile.loggedIn = true;
 

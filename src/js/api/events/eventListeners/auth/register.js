@@ -19,10 +19,8 @@ export default function registerListen(form) {
     const [data, err] = await request.fetch();
 
     if (data) {
-      console.log(data.data);
       const [loginData, loginErr] = await request.fetch("auth/login");
       if (loginData) {
-        console.log(loginData.data);
         const { accessToken, ...profile } = loginData.data;
         profile.loggedIn = true;
         storage.save("profile", profile);

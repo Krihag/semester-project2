@@ -1,7 +1,7 @@
 import storage from "../../../../utils/storage/index.js";
 import login from "../../../../components/modal/templates/login/index.js";
 import postRequest from "../../../auth/requests/postRequest.js";
-
+import errorMessage from "../../../../utils/helpers/errorMessage.js";
 import inputError from "../../../../components/modal/handler/inputError.js";
 
 export default async function createListing(form) {
@@ -53,7 +53,7 @@ export default async function createListing(form) {
       window.location.href = `/listing/?id=${res.data.id}`;
       storage.save("successMessage", "Listing created");
     } else {
-      console.log(err);
+      errorMessage(err);
     }
   });
 }

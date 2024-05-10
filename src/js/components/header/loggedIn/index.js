@@ -13,8 +13,6 @@ export default async function loggedIn(container) {
 
   const userCredits = userData.data.credits;
 
-  console.log(userData);
-
   const userProfileContainer = createEle(
     "a",
     "flex items-center gap-4 pb-6 lg:pb-0 border-b border-lighterPurple lg:border-0 lg:order-4 lg:mx-10",

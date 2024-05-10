@@ -60,7 +60,6 @@ export default function lazyLoadListings(
 
       if (i + 1 === observe * count) {
         createObs(container.lastChild);
-        console.log(`observer created for ${i + 1}th listing`);
       }
     }
   }

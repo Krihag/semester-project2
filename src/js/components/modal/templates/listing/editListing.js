@@ -18,8 +18,6 @@ export default function editListing(data) {
     value: data.title,
   });
 
-  console.log(data);
-
   const description = textareaLabel({
     text: "Description",
     name: "description",
@@ -31,8 +29,6 @@ export default function editListing(data) {
     id: "tags-container",
     tags: data.tags,
   });
-
-  console.log(data.endsAt);
 
   const date = dateAndTime({
     value: data.endsAt,

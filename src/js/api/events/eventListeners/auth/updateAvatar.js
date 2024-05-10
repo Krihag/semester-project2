@@ -16,7 +16,6 @@ export default function updateAvatar(form, endpoint) {
     const request = await putRequest(endpoint, body);
 
     const [data, err] = await request.fetch();
-    console.log(data);
 
     if (data) {
       userAvatar(body.avatar.url);

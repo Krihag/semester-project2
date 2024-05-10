@@ -20,7 +20,6 @@ export default async function addBid(id, amount, errContainer = false) {
   const [data, err] = await request.fetch();
 
   if (data) {
-    console.log(data);
     bidsAndCredits();
   } else {
     if (errContainer) {

@@ -5,7 +5,6 @@ import profileModal from "../profile/index.js";
 import modalToggle from "../../handler/toggleModal.js";
 
 export default function itemBids(bids) {
-  console.log(bids);
   const bidsContainer = createEle("div", "w-full py-8");
 
   const header = createEle(

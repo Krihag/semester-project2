@@ -10,7 +10,6 @@ export default async function bidsHistory(data) {
   );
 
   const bids = bidsData.data;
-  console.log(bids);
 
   const container = createEle(
     "div",
@@ -43,7 +42,6 @@ export default async function bidsHistory(data) {
     });
   }
 
-  console.log(bids);
   if (bids.length === 0) {
     const noBids = createEle(
       "div",

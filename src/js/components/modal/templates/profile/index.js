@@ -43,7 +43,6 @@ export default async function profile(name) {
     `auction/profiles/${data.name}/wins?_bids=true&_seller=true`,
   );
 
-  console.log(data);
   const media = profileMedia(data, isOwner);
   const stats = profileStats({
     listings: userListings.data,
@@ -51,8 +50,6 @@ export default async function profile(name) {
   });
 
   container.append(media, stats);
-
-  console.log(container);
 
   modal({
     ele: container,

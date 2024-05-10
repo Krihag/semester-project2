@@ -5,6 +5,7 @@ import putRequest from "../../../auth/requests/putRequest.js";
 import modalToggle from "../../../../components/modal/handler/toggleModal.js";
 import fullListing from "../../../../components/listing/full/index.js";
 import inputError from "../../../../components/modal/handler/inputError.js";
+import errorMessage from "../../../../utils/helpers/errorMessage.js";
 
 export default async function updateListing(form, endpoint) {
   form.addEventListener("submit", async (e) => {
@@ -31,7 +32,6 @@ export default async function updateListing(form, endpoint) {
 
     const data = Object.fromEntries(formData.entries());
     tagsContainer.length > 0 && (data.tags = tagsContainer);
-    console.log(data);
 
     const imgs = form.querySelectorAll(".create-img");
     const images = [];
@@ -53,13 +53,12 @@ export default async function updateListing(form, endpoint) {
     const [res, err] = await request.fetch();
 
     if (res) {
-      console.log(res.data);
       fullListing(res.data);
 
       successMessage("Listing updated");
       modalToggle.close();
     } else {
-      console.log(err);
+      errorMessage(err);
     }
   });
 }
