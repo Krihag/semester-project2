@@ -104,14 +104,6 @@
           id="parallax-layer-3"
         />
       </section>
-      <!-- <div class="flex justify-center gap-1 mt-6 px-6 relative">
-        <input
-          id="search-input"
-          type="search"
-          class="rounded-full text-primary px-4 py-1 outline-none bg-purple-100 w-full"
-          placeholder="Search listings.."
-        />
-      </div> -->
 
       <!-- ALL LISTINGS SECTION -->
       <section
@@ -126,6 +118,7 @@
               class="w-full md:w-3/4 xl:w-1/2 flex relative gap-2 pt-4 md:pt-0 text-sm md:text-base"
             >
               <input
+                aria-label="search listings by title"
                 type="search"
                 id="search-input"
                 class="w-full rounded-md outline-none text-primary px-4 xl:px-8 py-2 xl:py-3 text-sm xl:text-base"
@@ -212,6 +205,7 @@
             ></h2>
             <i
               class="fa-solid fa-xmark text-2xl font-bold cursor-pointer text-purple-100"
+              aria-label="Close modal"
               id="modal-close"
             ></i>
           </div>
@@ -224,6 +218,7 @@
 
       <a
         href="#"
+        aria-label="Go back to top of page"
         class="hidden fixed z-10 bottom-6 right-4 h-14 w-14 bg-cta rounded-full items-center justify-center shadow-lg xl:bottom-10 xl:right-8 xl:h-20 xl:w-20"
         id="back-top-btn"
       >
