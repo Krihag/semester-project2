@@ -51,8 +51,11 @@ export default async function profile(name) {
 
   container.append(media, stats);
 
-  modal({
-    ele: container,
-    title: `${data.name}'s profile`,
-  });
+  modal(
+    {
+      ele: container,
+      title: `${data.name}'s profile`,
+    },
+    true,
+  );
 }

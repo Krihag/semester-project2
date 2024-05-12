@@ -51,8 +51,11 @@ export default function itemBids(bids) {
     bidsContainer.append(item);
   });
 
-  modal({
-    ele: bidsContainer,
-    title: "Listing bid history",
-  });
+  modal(
+    {
+      ele: bidsContainer,
+      title: "Listing bid history",
+    },
+    true,
+  );
 }
