@@ -8,10 +8,10 @@ import modalToggle from "./handler/toggleModal.js";
  * @param {string} data.title - The title of the modal.
  * @param {HTMLElement} data.ele - The element to be appended to the modal body.
  */
-export default function modal(data) {
+export default function modal(data, clickOutsideClose = false) {
   const title = document.getElementById("modal-header");
   title.textContent = data.title ? data.title : "";
   const modalBody = document.getElementById("modal-content");
   modalBody.append(data.ele);
-  modalToggle.open();
+  modalToggle.open(clickOutsideClose);
 }
