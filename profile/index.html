@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="View and manage your CloudBids profile. Track your bids, update your personal information, and explore your bidding history. Your journey to winning bids starts here!"
+    />
+    <title>User Profile - CloudBids</title>
+
+    <!-- Hotjar Tracking Code for CloudBids -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 4972582, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b515e79b0f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="../src/js/pages/profile/index.js"></script>
+  </head>
+  <body class="bg-lighterPurple max-w-screen overflow-x-hidden min-h-screen">
+    <header
+      class="flex fixed lg:relative w-screen max-w-screen justify-between top-0 py-3 px-8 md:px-14 bg-secondary z-20 items-center"
+    >
+      <div
+        class="sm:max-w-7xl flex justify-between w-full items-center mx-auto"
+      >
+        <a class="" href="/">
+          <img
+            src="/src/img/cloudbids-logo.png"
+            class="w-28 lg:w-40"
+            alt="Cloudbids logo"
+            aria-label="Go to main auction page"
+          />
+        </a>
+
+        <nav
+          id="nav-bar"
+          class="hidden flex-col gap-2 absolute top-11 right-0 px-4 w-72 py-5 shadow-lg bg-secondary rounded-bl-2xl lg:static lg:flex lg:flex-row lg:items-center lg:gap-4 lg:w-fit lg:shadow-none lg:px-0"
+        ></nav>
+        <div id="hamburger-menu" class="px-1 lg:hidden">
+          <i
+            class="fa-solid fa-bars text-2xl text-purple-100"
+            id="hamburger-open"
+            aria-label="Navigation menu"
+          ></i>
+          <i class="fa-solid fa-xmark hidden text-lg" id="hamburger-close"></i>
+        </div>
+      </div>
+    </header>
+    <main class="w-screen overflow-x-hidden px-2 mt-20 md:px-14" id="root">
+      <!-- MODAL CONTAINER START -->
+
+      <div
+        id="modal-container"
+        class="hidden items-center fixed justify-center z-40 w-screen px-2 py-6 h-screen top-0 left-0 bg-white bg-opacity-5 backdrop-blur-sm max-h-screen max-w-screen"
+      >
+        <div
+          id="modal-main"
+          class="relative max-w-2xl flex flex-col rounded-md bg-modalBg w-full min-h-60 max-h-full overflow-auto border border-lighterPurple"
+        >
+          <div
+            class="flex justify-between items-center sticky top-0 p-5 border-b border-lighterPurple bg-modalBg"
+          >
+            <h2 class="text-xl font-bold text-purple-100" id="modal-header">
+              Modal
+            </h2>
+            <i
+              class="fa-solid fa-xmark text-2xl font-bold cursor-pointer text-purple-100"
+              aria-label="Close modal"
+              id="modal-close"
+            ></i>
+          </div>
+          <div
+            id="modal-content"
+            class="flex items-center justify-center gap-4 pt-4 pb-8 w-full text-white px-5"
+          ></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

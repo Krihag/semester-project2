@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p,
+h1,
+h2,
+h3,
+h4,
+div,
+a,
+li,
+button {
+  color: #f3e8ff;
+}
+
+p,
+div,
+a,
+button,
+li {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Montserrat", sans-serif;
+}
+
+#modal-main::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* #modal-main::-webkit-scrollbar-track {
+
+} */
+
+#modal-main::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #e9d5ff;
+  border-radius: 2rem;
+}
+
+#modal-main::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #ae91d3;
+}
