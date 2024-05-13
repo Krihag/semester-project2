@@ -2,7 +2,7 @@
 ![cloudbids](https://github.com/Krihag/semester-project2/assets/125972171/2d9d3f2a-a8ae-4fba-92ca-f84a58ab0118)
 Welcome to CloudBids, for this semester project we were tasked with designing and building an online auction website. Our goal is to create a user-friendly platform that connects buyers and sellers in an easy and secure way.
 
-
+#### live link: https://cloudbids.netlify.app/
 
 ## Overview
 CloudBids is an online auction platform tailored to meet the needs of buyers and sellers. The platform seamlessly integrates with an API to handle data storage and retrieval, ensuring smooth interactions for users. 
