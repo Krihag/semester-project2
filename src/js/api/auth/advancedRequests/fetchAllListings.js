@@ -10,17 +10,25 @@ import headers from "../data/headers.js";
  */
 export default async function fetchAllListings(
   onlyActive = false,
+
   page = 1,
   arr = [],
+  errorContainer = false,
 ) {
-  const request = new AuthRequest(
+  const response = new AuthRequest(
     "GET",
     headers(),
     `auction/listings?_seller=true&_bids=true&page=${page}`,
   );
-  const [data, err] = await request.fetch();
+
+  const [data, err] = await response.fetch();
 
   if (err) {
+    if (errorContainer) {
+      errorContainer.textContent = `* Could not fetch posts. Error:  ${err}. Please try again later`;
+      errorContainer.classList.add("text-red-600");
+    }
+
     console.error(err);
     return;
   }

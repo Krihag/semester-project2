@@ -10,7 +10,7 @@ const sortByEle = document.getElementById("sort-listings");
 const backToTop = document.getElementById("back-top-btn");
 parallax();
 init();
-const filteredListings = await fetchAllListings(true);
+const filteredListings = await fetchAllListings(true, 1, [], container);
 
 const sortedListings = filteredListings.sort(
   (a, b) => new Date(a.endsAt) - new Date(b.endsAt),
