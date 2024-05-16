@@ -4,6 +4,7 @@ Welcome to CloudBids, for this semester project we were tasked with designing an
 
 #### live link: https://cloudbids.netlify.app/
 
+
 ## Overview
 CloudBids is an online auction platform tailored to meet the needs of buyers and sellers. The platform seamlessly integrates with an API to handle data storage and retrieval, ensuring smooth interactions for users. 
 Throughout the development process, various aspects such as user registration, item listing, and bidding functionality were addressed.
