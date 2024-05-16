@@ -1,6 +1,7 @@
 import putRequest from "../../../auth/requests/putRequest.js";
 import errorMessage from "../../../../utils/helpers/errorMessage.js";
 import userAvatar from "../../../../updates/actions/userAvatar.js";
+import storage from "../../../../utils/storage/index.js";
 
 export default function updateAvatar(form, endpoint) {
   form.addEventListener("submit", async (e) => {
@@ -19,6 +20,9 @@ export default function updateAvatar(form, endpoint) {
 
     if (data) {
       userAvatar(body.avatar.url);
+      const profile = storage.load("profile");
+      profile.avatar.url = body.avatar.url;
+      storage.save("profile", profile);
     } else {
       errorMessage(err);
     }
